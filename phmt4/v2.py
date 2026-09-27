@@ -124,6 +124,8 @@ class Config:
     n_samples: int = 40
     seed: int = 42
     mirror: bool = True  # False = ablation: every crystallization is skipped
+    thresh_2: float = 0.70  # binary resonance threshold (BASE_PARAMS default)
+    thresh_3: float = 0.76  # ternary resonance threshold (BASE_PARAMS default)
 
 
 DEFAULT = Config()
@@ -233,6 +235,18 @@ def evolve(rhos, levels, cfg=DEFAULT):
     return rhos
 
 
+def _triples(n):
+    """All i<j<k index triples of range(n), in itertools.combinations order."""
+    ii, jj = np.triu_indices(n, 1)          # pairs in combinations order
+    cnt = n - 1 - jj                        # number of k > j for each pair
+    keep = cnt > 0
+    ii, jj, cnt = ii[keep], jj[keep], cnt[keep]
+    rep_i, rep_j = np.repeat(ii, cnt), np.repeat(jj, cnt)
+    start = np.repeat(np.cumsum(cnt) - cnt, cnt)
+    kk = rep_j + 1 + (np.arange(cnt.sum()) - start)
+    return np.stack([rep_i, rep_j, kk], axis=1)
+
+
 # -------------------- run --------------------
 def _observe(rhos, types, protection):
     cf = coherent_fraction(rhos)
@@ -255,7 +269,7 @@ def run_multigen(rng=None, seed=None, cfg=DEFAULT, return_state=False):
     if rng is None:
         rng = np.random.default_rng(seed)
     N = cfg.N
-    base = dict(BASE_PARAMS, max_membranes=cfg.max_membranes)
+    base = dict(BASE_PARAMS, max_membranes=cfg.max_membranes, thresh_2=cfg.thresh_2, thresh_3=cfg.thresh_3)
     calibrator = CalibratorAgent(base)
     params = dict(base)
 
@@ -295,12 +309,16 @@ def run_multigen(rng=None, seed=None, cfg=DEFAULT, return_state=False):
                 kid_levels.append(max(levels[i], levels[j]) + 1)
                 kid_types.append("binary")
                 births_2 += 1
-        if n >= 3:
-            for i, j, k in combinations(range(n), 3):
+        if n >= 3 and n + len(kids) < cap:
+            # Vectorized pre-filter: only triples passing thresh_3 can draw from
+            # the RNG or give birth, so iterating just those (in the same
+            # lexicographic order) is equivalent to the full combinations loop.
+            T = _triples(n)
+            r3 = (F[T[:, 0], T[:, 1]] * F[T[:, 1], T[:, 2]] * F[T[:, 2], T[:, 0]]) ** (1.0 / 3.0)
+            for i, j, k in T[r3 >= params["thresh_3"]].tolist():
                 if n + len(kids) >= cap:
                     break
-                r3 = (F[i, j] * F[j, k] * F[k, i]) ** (1.0 / 3.0)
-                if r3 >= params["thresh_3"] and rng.random() < params["fecund_p3"]:
+                if rng.random() < params["fecund_p3"]:
                     m = params["mix_3"]
                     kids.append((1 - m) * rhos[i] + (m / 2) * rhos[j] + (m / 2) * rhos[k])
                     kid_levels.append(max(levels[i], levels[j], levels[k]) + 1)
@@ -353,7 +371,7 @@ def monte_carlo(n_samples=DEFAULT.n_samples, seed=DEFAULT.seed, cfg=DEFAULT, ver
     log("PHMT-4 v2  |  density matrices + Lindblad dephasing + mirror")
     log("=" * 68)
     log(f"Samples {n_samples} | gens {cfg.n_generations} | start {cfg.n_initial} | "
-        f"cap {cfg.max_membranes} | seed {seed} | mirror {'on' if cfg.mirror else 'OFF (ablation)'}")
+        f"cap {cfg.max_membranes} | dephasing {cfg.dephasing:g} | seed {seed} | mirror {'on' if cfg.mirror else 'OFF (ablation)'}")
     rows = []
     for i in range(n_samples):
         r = run_multigen(rng, cfg=cfg)
@@ -385,11 +403,16 @@ def main(argv=None):
     ap.add_argument("--samples", type=int, default=DEFAULT.n_samples)
     ap.add_argument("--seed", type=int, default=DEFAULT.seed)
     ap.add_argument("--no-mirror", action="store_true", help="ablation: disable every crystallization")
+    ap.add_argument("--dephasing", type=float, default=DEFAULT.dephasing, help="dephasing rate gamma (default 0.05)")
+    ap.add_argument("--cap", type=int, default=DEFAULT.max_membranes, help="population cap (default 48)")
+    ap.add_argument("--thresh2", type=float, default=DEFAULT.thresh_2, help="binary resonance threshold (default 0.70)")
+    ap.add_argument("--thresh3", type=float, default=DEFAULT.thresh_3, help="ternary resonance threshold (default 0.76)")
     ap.add_argument("--csv", help="write per-sample rows to this CSV file")
     ap.add_argument("--json", help="write a summary (means, runtime, config) to this JSON file")
     ap.add_argument("--quiet", action="store_true")
     args = ap.parse_args(argv)
-    cfg = replace(DEFAULT, mirror=not args.no_mirror)
+    cfg = replace(DEFAULT, mirror=not args.no_mirror, dephasing=args.dephasing, max_membranes=args.cap,
+                  thresh_2=args.thresh2, thresh_3=args.thresh3)
     t0 = time.perf_counter()
     df = monte_carlo(args.samples, seed=args.seed, cfg=cfg, verbose=not args.quiet)
     runtime = time.perf_counter() - t0
