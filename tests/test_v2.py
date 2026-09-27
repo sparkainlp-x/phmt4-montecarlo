@@ -146,3 +146,38 @@ def test_cli_writes_csv_and_json(tmp_path):
     assert csv.read_text().count("\n") == 3
     d = json.loads(js.read_text())
     assert d["evidence_tag"] == "SYNTHETIC" and d["samples"] == 2
+
+
+def test_triples_match_itertools_order():
+    import itertools
+    for n in (3, 4, 9, 20):
+        assert np.array_equal(P._triples(n), np.array(list(itertools.combinations(range(n), 3))))
+
+
+def test_cli_sweep_options_are_applied(tmp_path):
+    import json
+    js = tmp_path / "r.json"
+    P.main(["--samples", "1", "--seed", "0", "--quiet", "--dephasing", "0.5", "--cap", "20",
+            "--thresh2", "0.9", "--thresh3", "0.92", "--json", str(js)])
+    cfg = json.loads(js.read_text())["config"]
+    assert (cfg["dephasing"], cfg["max_membranes"], cfg["thresh_2"], cfg["thresh_3"]) == (0.5, 20, 0.9, 0.92)
+
+
+def test_high_dephasing_high_threshold_run_is_valid_and_capped():
+    cfg = replace(P.DEFAULT, dephasing=2.0, max_membranes=30, thresh_2=0.90, thresh_3=0.92)
+    r = P.run_multigen(seed=1, cfg=cfg, return_state=True)
+    assert_density(r["rhos"])
+    assert r["max_pop"] <= 30
+
+
+def test_sweep_script_smoke(tmp_path):
+    import subprocess
+    import sys
+    import pathlib
+    out = tmp_path / "s.csv"
+    script = pathlib.Path(__file__).resolve().parents[1] / "scripts" / "sweep.py"
+    subprocess.run([sys.executable, str(script), "--dephasing", "0.5", "--caps", "12", "--samples", "1",
+                    "--workers", "1", "--out", str(out)], check=True, capture_output=True)
+    import pandas as pd
+    df = pd.read_csv(out)
+    assert len(df) == 2 and set(df.mirror) == {"on", "off"} and (df.final_n_mean <= 12).all()
