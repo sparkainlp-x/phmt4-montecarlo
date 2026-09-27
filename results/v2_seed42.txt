@@ -1,0 +1,30 @@
+====================================================================
+PHMT-4 v2  |  density matrices + Lindblad dephasing + mirror
+====================================================================
+Samples 40 | gens 6 | start 6 | cap 48 | seed 42 | mirror on
+  10/40
+  20/40
+  30/40
+  40/40
+
+RESULTS (SYNTHETIC)
+Mean final n                 : 48.00
+Mean binary births           : 27.52
+Mean ternary births          : 14.47
+Mean final Cf                : 0.817
+Mean std Cf                  : 0.065
+Mean min Cf                  : 0.710
+Mean founder Cf              : 0.806
+Mean binary-offspring Cf     : 0.818
+Mean ternary-offspring Cf    : 0.817
+Mean purity                  : 0.9999
+Mean min purity              : 0.9992
+Mean entropy S/lnN           : 0.0002
+Mean mirror purity gain      : 3.31e-02
+Max |tr rho - 1|             : 1.8e-15
+Max Hermiticity err          : 0.0e+00
+Min eigenvalue               : -5.6e-16
+Mean generations             : 2.4
+Protection held              : 100.0%
+Scope: heuristic classical simulation. Not a consciousness theory.
+Runtime: 4.33 s (SYNTHETIC run, this machine)

@@ -33,3 +33,5 @@ jobs:
         run: python -m pytest -v
       - name: Smoke run (5 samples, seed 42)
         run: python phmt4_montecarlo.py --samples 5 --seed 42
+      - name: Numerical checks
+        run: python scripts/v2_checks.py

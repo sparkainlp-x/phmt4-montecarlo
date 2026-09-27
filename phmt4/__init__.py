@@ -1,8 +1,10 @@
-"""PHMT-4 Monte Carlo: a heuristic, classical numpy simulation.
+"""PHMT-4 Monte Carlo (v2): a heuristic, classical numpy simulation.
 
+Membranes are 32x32 density matrices evolved under Lindblad dephasing with an
+exact unitary step; the crystallization mirror acts on mixed states.
 Not a consciousness theory, not quantum hardware, not biology.
 
-- ``phmt4.v1``: the founder's original simulation with minimal, documented fixes.
+The faithful v1 (original + minimal fixes) is preserved at git tag v1-original.
 """
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"

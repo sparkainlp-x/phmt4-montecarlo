@@ -1,0 +1,8 @@
+[1] mirror, strength 0.58, 200 states each
+    pure states : max |crystallize(rho) - rho| = 5.0e-16 (identity: nothing to sharpen)
+    rank-4 mixed: purity gain mean 0.083, min 0.031
+[2] Strang splitting, level 3, T = 0.4, error vs dt = T/3200 reference
+    dt = T/20  max error 4.43e-07
+    dt = T/40  max error 1.11e-07  ratio 4.01
+    dt = T/80  max error 2.76e-08  ratio 4.00
+[3] overlap with dominant eigenvector of H: start 0.4114, after 60 exact steps 0.4114 (v1 Euler step: 1.0000)

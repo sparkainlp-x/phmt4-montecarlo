@@ -8,11 +8,11 @@ authors:
     affiliation: "Spark AI NLP"
 repository-code: "https://github.com/sparkainlp-x/phmt4-montecarlo"
 license: MIT
-version: "0.1.0"
+version: "0.2.0"
 date-released: "2026-09-27"
 abstract: >-
-  Heuristic dynamical architecture simulated with numpy: 32-dimensional complex
-  "membranes", dephasing evolution, an eigenvalue-boost "crystallization
+  Heuristic dynamical architecture simulated with numpy: 32x32 density-matrix
+  "membranes" under Lindblad dephasing (exact unitary step, Strang splitting), an eigenvalue-boost "crystallization
   mirror", resonance-gated binary/ternary births, an Observer reporting the
   normalized l1 coherence (Cf) and a Calibrator adapting parameters. Classical
   simulation only; not a consciousness theory, not quantum hardware, not
