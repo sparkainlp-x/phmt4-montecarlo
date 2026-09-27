@@ -1,12 +1,16 @@
 # phmt4-montecarlo
 
+[![CI](https://github.com/sparkainlp-x/phmt4-montecarlo/actions/workflows/ci.yml/badge.svg)](https://github.com/sparkainlp-x/phmt4-montecarlo/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Outputs: SYNTHETIC](https://img.shields.io/badge/outputs-SYNTHETIC-lightgrey.svg)](#what-it-is-not)
+
 PHMT-4 Monte Carlo: **a heuristic, classical numpy simulation**. It has 32-dimensional
 "membranes", dephasing evolution, an eigenvalue-boost "crystallization mirror",
 binary/ternary births gated by resonance thresholds, an Observer that reports the coherent
 fraction Cf, and a Calibrator that adapts parameters.
 
 This branch holds **v2** (`phmt4/v2.py`), a density-matrix redesign that fixes the design
-flaws found in the founder's original. The faithful original with minimal fixes (v1) and its
+flaws found in the original prototype. The faithful original with minimal fixes (v1) and its
 checks are preserved at tag [`v1-original`](https://github.com/sparkainlp-x/phmt4-montecarlo/tree/v1-original).
 
 ## What it is NOT
@@ -193,7 +197,7 @@ With **thresh 0.90 / 0.92, dephasing 0.5, cap 96, mirror on**:
 
 The same setting with the **mirror off** reaches the cap in most runs (4.4 generations, 22% of runs complete all 6, final n 90.7), with Cf 0.362 / 0.291 and purity 0.212. At dephasing 2.0 the contrast is sharper: 85% vs 0% of runs complete all 6 generations, and purity is 0.998 vs 0.042. In this regime the mirror changes both the states and the population dynamics, because mixed membranes resemble each other and pass the gate more easily. At dephasing 0.05, the mirror's effect on purity is small (1.000 vs 0.80).
 
-**Defaults are unchanged** (γ = 0.05, cap 48, thresholds 0.70 / 0.76). They are the founder's
+**Defaults are unchanged** (γ = 0.05, cap 48, thresholds 0.70 / 0.76). They are the original prototype's
 parameters and keep the v1/v2 comparison above reproducible. The regime above is a
 recommended **experiment setting**, not a better model. All of these numbers are SYNTHETIC
 and come from one seed.
@@ -204,7 +208,7 @@ and come from one seed.
 - In v2 at default settings, the mirrors (per-step emp_floor mixing, per-generation eureka step, post-birth) outweigh the weak dephasing (γ = 0.05), so states stay nearly pure (purity 0.9999). The mirror's effect shows most clearly in the ablation.
 - At default settings the cap (48) is still reached by generation 2 or 3, so most of the 6 generations are never run (the same happens in v1). The parameter sweep shows why (nearly all pairs pass `thresh_2 = 0.70`) and which thresholds avoid it.
 - Cf is phase-blind on pure states: any uniform-magnitude state has Cf = 1.
-- Parameters and thresholds are the founder's heuristics. None of them is fitted to data, and no metric here corresponds to a physical, biological or cognitive quantity.
+- Parameters and thresholds are the original prototype's heuristics. None of them is fitted to data, and no metric here corresponds to a physical, biological or cognitive quantity.
 
 ## Evidence tags
 
