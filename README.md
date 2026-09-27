@@ -224,3 +224,5 @@ See [sparkainlp-x/.github: Evidence tags](https://github.com/sparkainlp-x/.githu
 ## License and citation
 
 MIT © 2026 Jean-François Brisson / Spark AI NLP. See [LICENSE](LICENSE) and [CITATION.cff](CITATION.cff).
+
+Archived on Zenodo: concept DOI [10.5281/zenodo.22999270](https://doi.org/10.5281/zenodo.22999270) (all versions); v0.2.0: [10.5281/zenodo.22999271](https://doi.org/10.5281/zenodo.22999271). Changes are listed in [CHANGELOG.md](CHANGELOG.md).
