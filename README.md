@@ -3,6 +3,7 @@
 [![CI](https://github.com/sparkainlp-x/phmt4-montecarlo/actions/workflows/ci.yml/badge.svg)](https://github.com/sparkainlp-x/phmt4-montecarlo/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Outputs: SYNTHETIC](https://img.shields.io/badge/outputs-SYNTHETIC-lightgrey.svg)](#what-it-is-not)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22999270.svg)](https://doi.org/10.5281/zenodo.22999270)
 
 PHMT-4 Monte Carlo: **a heuristic, classical numpy simulation**. It has 32-dimensional
 "membranes", dephasing evolution, an eigenvalue-boost "crystallization mirror",

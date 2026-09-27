@@ -8,6 +8,14 @@ authors:
     affiliation: "Spark AI NLP"
 repository-code: "https://github.com/sparkainlp-x/phmt4-montecarlo"
 license: MIT
+doi: "10.5281/zenodo.22999270"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.22999270"
+    description: "Concept DOI (all versions, Zenodo)"
+  - type: doi
+    value: "10.5281/zenodo.22999271"
+    description: "Version DOI for v0.2.0 (Zenodo)"
 version: "0.2.0"
 date-released: "2026-09-27"
 abstract: >-
