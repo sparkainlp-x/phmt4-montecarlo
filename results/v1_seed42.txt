@@ -1,0 +1,42 @@
+====================================================================
+PHMT-4  |  Protection + Fecundity + Crystallization Mirror
+Observer + Calibrator  |  binary primary, ternary secondary
+====================================================================
+Samples 40 | gens 6 | start 6 | cap 48 | seed 42
+--------------------------------------------------------------------
+  10/40
+  20/40
+  30/40
+  40/40
+
+RESULTS
+Mean final n                 : 48.00
+Mean binary births           : 28.25
+Mean ternary births          : 13.75
+Mean jumps                   : 0.57
+Mean final Cf                : 0.971
+Mean std Cf                  : 0.025
+Mean min Cf                  : 0.808
+Mean founder Cf              : 0.960
+Mean binary-offspring Cf     : 0.971  (std 0.014)
+Mean ternary-offspring Cf    : 0.970  (std 0.009)
+Protection held              : 100.0%
+Mean generations completed   : 2.1
+Finished: 2026-09-27T05:02:41.199114
+Scope: heuristic architecture. Not a consciousness theory.
+                 mean       std        min        max
+final_n     48.000000  0.000000  48.000000  48.000000
+births_2    28.250000  7.691987  15.000000  40.000000
+births_3    13.750000  7.691987   2.000000  27.000000
+jumps        0.575000  0.675107   0.000000   2.000000
+mean_cf      0.970738  0.007858   0.937999   0.975329
+std_cf       0.025095  0.038906   0.000019   0.139288
+min_cf       0.807928  0.265730   0.000000   0.975272
+prot         1.000000  0.000000   1.000000   1.000000
+gens         2.075000  0.266747   2.000000   3.000000
+bin_mean     0.970970  0.013188   0.910215   0.975324
+bin_std      0.014405  0.046252   0.000018   0.243265
+ter_mean     0.970013  0.020714   0.853864   0.975347
+ter_std      0.009487  0.033834   0.000001   0.172908
+found_mean   0.960327  0.034232   0.821656   0.975300
+Runtime: 6.69 s (SYNTHETIC run, this machine)

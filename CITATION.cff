@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below. All reported numbers are SYNTHETIC outputs of a heuristic classical simulation; no consciousness, biological, medical or quantum-hardware claim is made."
+title: "phmt4-montecarlo: PHMT-4 Monte Carlo, a heuristic classical simulation of protected membranes with a crystallization mirror, Observer and Calibrator"
+type: software
+authors:
+  - family-names: "Brisson"
+    given-names: "Jean-François"
+    affiliation: "Spark AI NLP"
+repository-code: "https://github.com/sparkainlp-x/phmt4-montecarlo"
+license: MIT
+version: "0.1.0"
+date-released: "2026-09-27"
+abstract: >-
+  Heuristic dynamical architecture simulated with numpy: 32-dimensional complex
+  "membranes", dephasing evolution, an eigenvalue-boost "crystallization
+  mirror", resonance-gated binary/ternary births, an Observer reporting the
+  normalized l1 coherence (Cf) and a Calibrator adapting parameters. Classical
+  simulation only; not a consciousness theory, not quantum hardware, not
+  biology.
+keywords:
+  - monte carlo
+  - heuristic simulation
+  - density matrix
+  - dephasing
+  - synthetic benchmark
