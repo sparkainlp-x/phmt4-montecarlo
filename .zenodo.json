@@ -1,0 +1,31 @@
+{
+  "upload_type": "software",
+  "title": "phmt4-montecarlo: PHMT-4 Monte Carlo, a heuristic classical simulation of protected membranes with a crystallization mirror, Observer and Calibrator",
+  "description": "<p>Heuristic dynamical architecture simulated with numpy. It evolves 32×32 density-matrix \"membranes\" under Lindblad dephasing (exact unitary step, Strang splitting), applies an eigenvalue-boost \"crystallization mirror\", gates binary/ternary births on resonance thresholds, and uses an Observer that reports normalized l1 coherence (Cf) and a Calibrator that adapts parameters. Version 0.2.0 (v2) is a density-matrix redesign that fixes design flaws in the original prototype, which is preserved at tag <code>v1-original</code>. The README gives a side-by-side v1/v2 comparison, a mirror-off ablation and a parameter sweep.</p><p><strong>Evidence tags.</strong> Every reported number is <strong>SYNTHETIC</strong>: the output of this heuristic simulation at the stated seed. Parameters are heuristics, not fitted to data.</p><p><strong>Scope and limits.</strong> Not a consciousness theory, not quantum hardware or a quantum computer (ordinary floating-point linear algebra on a CPU), not biology or medicine. \"Density matrix\", \"Lindblad\" and \"dephasing\" name the mathematics used, not a device. No production-readiness claim is made.</p><p>Evidence tags follow <a href=\"https://github.com/sparkainlp-x/.github#evidence-tags\">sparkainlp-x/.github</a> (SYNTHETIC / REPORTED / TARGET / UNRUN).</p>",
+  "creators": [
+    {
+      "name": "Brisson, Jean-François",
+      "affiliation": "Spark AI NLP"
+    }
+  ],
+  "access_right": "open",
+  "license": "MIT",
+  "keywords": [
+    "Monte Carlo",
+    "heuristic simulation",
+    "density matrix",
+    "dephasing",
+    "numpy",
+    "synthetic benchmark",
+    "Python",
+    "research software"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/sparkainlp-x/phmt4-montecarlo",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
+    }
+  ],
+  "language": "eng"
+}
