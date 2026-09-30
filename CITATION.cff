@@ -7,7 +7,7 @@ authors:
     given-names: "Jean-François"
     affiliation: "Spark AI NLP"
 repository-code: "https://github.com/sparkainlp-x/phmt4-montecarlo"
-license: MIT
+license: AGPL-3.0-only
 doi: "10.5281/zenodo.22999270"
 identifiers:
   - type: doi

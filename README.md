@@ -1,7 +1,7 @@
 # phmt4-montecarlo
 
 [![CI](https://github.com/sparkainlp-x/phmt4-montecarlo/actions/workflows/ci.yml/badge.svg)](https://github.com/sparkainlp-x/phmt4-montecarlo/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 [![Outputs: SYNTHETIC](https://img.shields.io/badge/outputs-SYNTHETIC-lightgrey.svg)](#what-it-is-not)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22999270.svg)](https://doi.org/10.5281/zenodo.22999270)
 
@@ -223,6 +223,12 @@ See [sparkainlp-x/.github: Evidence tags](https://github.com/sparkainlp-x/.githu
 
 ## License and citation
 
-MIT © 2026 Jean-François Brisson / Spark AI NLP. See [LICENSE](LICENSE) and [CITATION.cff](CITATION.cff).
+This software is available under the GNU Affero General Public License v3.0 only (AGPL-3.0-only); see [LICENSE](LICENSE).
+
+Organizations that want to use it in proprietary products or services without AGPL obligations can contact the author about a commercial license via https://sparkainlpx.xyz.
+
+Versions published before 2026-09-29 were released under the MIT License and remain available under those terms.
+
+Citation metadata: [CITATION.cff](CITATION.cff).
 
 Archived on Zenodo: concept DOI [10.5281/zenodo.22999270](https://doi.org/10.5281/zenodo.22999270) (all versions); v0.2.0: [10.5281/zenodo.22999271](https://doi.org/10.5281/zenodo.22999271). Changes are listed in [CHANGELOG.md](CHANGELOG.md).
