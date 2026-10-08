@@ -231,4 +231,4 @@ Versions published before 2026-09-29 were released under the MIT License and rem
 
 Citation metadata: [CITATION.cff](CITATION.cff).
 
-Archived on Zenodo: concept DOI [10.5281/zenodo.22999270](https://doi.org/10.5281/zenodo.22999270) (all versions); v0.2.0: [10.5281/zenodo.22999271](https://doi.org/10.5281/zenodo.22999271). Changes are listed in [CHANGELOG.md](CHANGELOG.md).
+Archived on Zenodo: concept DOI [10.5281/zenodo.22999270](https://doi.org/10.5281/zenodo.22999270) (all versions); v0.2.1: [10.5281/zenodo.23241618](https://doi.org/10.5281/zenodo.23241618); v0.2.0: [10.5281/zenodo.22999271](https://doi.org/10.5281/zenodo.22999271). Changes are listed in [CHANGELOG.md](CHANGELOG.md).
