@@ -7,4 +7,4 @@ Not a consciousness theory, not quantum hardware, not biology.
 The faithful v1 (original + minimal fixes) is preserved at git tag v1-original.
 """
 
-__version__ = "0.2.0"
+__version__ = "0.2.1"
